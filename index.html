@@ -4,40 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SimpleGo Dashboard</title>
+    <meta name="description" content="Gestiona tus recompensas y descubre nuevas oportunidades con SimpleGo">
+    <meta name="theme-color" content="#6B64DB">
+    
+    <!-- Preconnects for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://oferta-uploads-prod.s3.us-east-1.amazonaws.com">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Neue+Montreal:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <img src="https://oferta-uploads-prod.s3.us-east-1.amazonaws.com/pictures/others/SimpleGo/SGO_Marca_9.png?_t=1745530830" alt="SimpleGo" class="loading-logo">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Cargando tu dashboard...</p>
+        </div>
+    </div>
+
+    <!-- Header with improved mobile support -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <img src="https://oferta-uploads-prod.s3.us-east-1.amazonaws.com/pictures/others/SimpleGo/SGO_Marca_9.png?_t=1745530830" alt="SimpleGo" style="height: 40px; display: block;">
-                </div>
-                <div class="user-profile">
-                    <span class="user-name">María González</span>
-                    <div class="user-avatar">M</div>
+                <div class="logo centered-logo">
+                    <img src="https://oferta-uploads-prod.s3.us-east-1.amazonaws.com/pictures/others/SimpleGo/SGO_Marca_9.png?_t=1745530830" alt="SimpleGo" style="height: 28px; display: block;">
                 </div>
             </div>
         </div>
     </header>
     
     <div class="container">
-        <div class="balance-section animate-fadeInUp">
+        <!-- Enhanced Balance Section with visual improvements -->
+        <section class="balance-section">
+            <div class="balance-card">
+                <div class="balance-header">
+                    <div class="balance-info">
             <div class="balance-label">Monto disponible</div>
             <div class="balance-amount">$35,00</div>
         </div>
+                </div>
+                <div class="balance-actions">
+                    <button class="balance-action-btn primary">
+                        <i class="fas fa-credit-card"></i>
+                        Canjear
+                    </button>
+                    <button class="balance-action-btn secondary">
+                        <i class="fas fa-chart-line"></i>
+                        Historial
+                    </button>
+                </div>
+            </div>
+        </section>
         
-        <div class="section animate-fadeInUp">
-            <div class="section-header">
-                <h2 class="section-title">MIS TARJETAS DE RECOMPENSAS</h2>
+        <!-- Special Banner Carousel Section -->
+        <section class="special-banner-section">
+            <div class="banner-carousel">
+                <div class="banner-container">
+                    <img src="https://oferta-uploads-prod.s3.us-east-1.amazonaws.com/pictures/others/SimpleGo/BANNER%20REFE%20page.png?_t=1745534267" alt="Oferta Especial" class="banner-image">
+                </div>
+                
+                <div class="banner-container">
+                    <img src="https://oferta-uploads-prod.s3.us-east-1.amazonaws.com/pictures/others/OfertaSimple%20Assets/Asset%2075.png?_t=1743086513" alt="Nuevos Comercios" class="banner-image">
+                </div>
+                
+                <div class="banner-container">
+                    <img src="https://oferta-uploads-prod.s3.us-east-1.amazonaws.com/pictures/others/SimpleGo/BANNER%20REFE%20page.png?_t=1745534267" alt="Refiere Amigos" class="banner-image">
+                </div>
             </div>
             
+            <!-- Carousel Indicators -->
+            <div class="banner-indicators">
+                <div class="banner-indicator active"></div>
+                <div class="banner-indicator"></div>
+                <div class="banner-indicator"></div>
+            </div>
+        </section>
+        
+        <!-- Enhanced Rewards Section -->
+        <section id="rewards" class="section">
+            <div class="section-header">
+                <h2 class="section-title">MIS TARJETAS DE RECOMPENSAS</h2>
+
+            </div>
+            
+            <div class="rewards-cards-container">
             <div class="rewards-cards-grid">
-            <div class="reward-card monthly-challenge animate-fadeInUp">
+            <div class="reward-card monthly-challenge clickable-card" onclick="openTermsModal('monthly-challenge')">
                 <div class="reward-card-content">
                     <div class="challenge-header">
                         <h3 class="reward-card-title">🏆 Reto del Mes</h3>
@@ -62,9 +124,9 @@
                 </div>
             </div>
             
-            <div class="reward-card olive-garden animate-fadeInUp delay-1" data-card-id="olive-garden">
+            <div class="reward-card olive-garden clickable-card" data-card-id="olive-garden" onclick="openTermsModal('olive-garden')">
                 <div class="reward-card-header">
-                    <button class="remove-card-btn" onclick="removeRewardCard('olive-garden')" title="Eliminar tarjeta">
+                    <button class="remove-card-btn" onclick="event.stopPropagation(); removeRewardCard('olive-garden')" title="Eliminar tarjeta">
                         <span class="remove-icon">×</span>
                     </button>
                 </div>
@@ -94,9 +156,9 @@
                 </div>
             </div>
             
-            <div class="reward-card papa-johns animate-fadeInUp delay-2" data-card-id="papa-johns">
+            <div class="reward-card papa-johns clickable-card" data-card-id="papa-johns" onclick="openTermsModal('papa-johns')">
                 <div class="reward-card-header">
-                    <button class="remove-card-btn" onclick="removeRewardCard('papa-johns')" title="Eliminar tarjeta">
+                    <button class="remove-card-btn" onclick="event.stopPropagation(); removeRewardCard('papa-johns')" title="Eliminar tarjeta">
                         <span class="remove-icon">×</span>
                     </button>
                 </div>
@@ -126,7 +188,7 @@
                 </div>
             </div>
             
-            <a href="recompensas.html" class="reward-card add-more animate-fadeInUp delay-3">
+            <a href="recompensas.html" class="reward-card add-more">
                 <div class="reward-card-content">
                     <div class="add-more-icon">
                         <span class="plus-symbol">+</span>
@@ -139,212 +201,233 @@
                 </div>
             </a>
             </div>
+                
+                <!-- Scroll indicators for mobile -->
+                <div class="scroll-indicators">
+                    <div class="scroll-indicator active" data-slide="0"></div>
+                    <div class="scroll-indicator" data-slide="1"></div>
+                    <div class="scroll-indicator" data-slide="2"></div>
+                    <div class="scroll-indicator" data-slide="3"></div>
+            </div>
         </div>
+        </section>
         
-        <div class="main-content">
-            <div class="section animate-fadeInUp activity-section">
-                <div class="section-header">
-                    <h2 class="section-title">ACTIVIDAD Y OPORTUNIDADES</h2>
-                </div>
-                
-                <div class="activity-filters">
-                    <button class="filter-btn active" data-filter="all">Todas</button>
-                    <button class="filter-btn" data-filter="double-rewards">Recompensas dobles</button>
-                </div>
-                
-                <div class="expiry-notice">
-                    <i class="fas fa-clock"></i>
-                    Las oportunidades de recompensa doble expiran el <span class="expiry-date">30 de abril</span>
-                </div>
-                
-                <table class="activity-table">
-                    <thead>
-                        <tr>
-                            <th>Fecha</th>
-                            <th>Establecimiento</th>
-                            <th>Créditos</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="date">19 de Abril</td>
-                            <td class="place">Baker's Café</td>
-                            <td class="credits">+$2.00</td>
-                        </tr>
-                        <tr class="reward-row">
-                            <td class="date">17 de Abril</td>
-                            <td class="place reward-place">
-                                <span class="highlight-text">Café Aroma</span>
-                                <span class="double-reward-badge">
-                                    Duplica recompensa
-                                </span>
-                            </td>
-                            <td class="credits">+$2.25</td>
-                        </tr>
-                        <tr class="reward-row">
-                            <td class="date">15 de Abril</td>
-                            <td class="place reward-place">
-                                <span class="highlight-text">Sportify</span>
-                                <span class="double-reward-badge">
-                                    Duplica recompensa
-                                </span>
-                            </td>
-                            <td class="credits">+$4.25</td>
-                        </tr>
-                        <tr>
-                            <td class="date">12 de Abril</td>
-                            <td class="place">Cinema World</td>
-                            <td class="credits">+$3.50</td>
-                        </tr>
-                        <tr class="reward-row">
-                            <td class="date">10 de Abril</td>
-                            <td class="place reward-place">
-                                <span class="highlight-text">The Steakhouse</span>
-                                <span class="double-reward-badge">
-                                    Duplica recompensa
-                                </span>
-                            </td>
-                            <td class="credits">+$5.75</td>
-                        </tr>
-                        <tr>
-                            <td class="date">8 de Abril</td>
-                            <td class="place">Costa Coffee</td>
-                            <td class="credits">+$1.75</td>
-                        </tr>
-                        <tr>
-                            <td class="date">7 de Abril</td>
-                            <td class="place">Metro Deli</td>
-                            <td class="credits">+$3.25</td>
-                        </tr>
-                        <tr class="reward-row">
-                            <td class="date">5 de Abril</td>
-                            <td class="place reward-place">
-                                <span class="highlight-text">Pizza Palace</span>
-                                <span class="double-reward-badge">
-                                    Duplica recompensa
-                                </span>
-                            </td>
-                            <td class="credits">+$4.50</td>
-                        </tr>
-                        <tr>
-                            <td class="date">3 de Abril</td>
-                            <td class="place">Fresh Market</td>
-                            <td class="credits">+$2.75</td>
-                        </tr>
-                        <tr>
-                            <td class="date">2 de Abril</td>
-                            <td class="place">BookStore Café</td>
-                            <td class="credits">+$1.50</td>
-                        </tr>
-                        <tr>
-                            <td class="date">1 de Abril</td>
-                            <td class="place">Gym Zone</td>
-                            <td class="credits">+$2.00</td>
-                        </tr>
-                        <tr class="reward-row">
-                            <td class="date">30 de Marzo</td>
-                            <td class="place reward-place">
-                                <span class="highlight-text">Burger King</span>
-                                <span class="double-reward-badge">
-                                    Duplica recompensa
-                                </span>
-                            </td>
-                            <td class="credits">+$3.75</td>
-                        </tr>
-                        <tr>
-                            <td class="date">28 de Marzo</td>
-                            <td class="place">Tech Store</td>
-                            <td class="credits">+$6.00</td>
-                        </tr>
-                        <tr>
-                            <td class="date">27 de Marzo</td>
-                            <td class="place">Pharmacy Plus</td>
-                            <td class="credits">+$1.25</td>
-                        </tr>
-                        <tr>
-                            <td class="date">25 de Marzo</td>
-                            <td class="place">Fashion Store</td>
-                            <td class="credits">+$4.75</td>
-                        </tr>
-                        <tr class="reward-row">
-                            <td class="date">23 de Marzo</td>
-                            <td class="place reward-place">
-                                <span class="highlight-text">Sushi Bar</span>
-                                <span class="double-reward-badge">
-                                    Duplica recompensa
-                                </span>
-                            </td>
-                            <td class="credits">+$7.25</td>
-                        </tr>
-                        <tr>
-                            <td class="date">22 de Marzo</td>
-                            <td class="place">Gas Station</td>
-                            <td class="credits">+$2.50</td>
-                        </tr>
-                        <tr>
-                            <td class="date">20 de Marzo</td>
-                            <td class="place">Supermarket</td>
-                            <td class="credits">+$5.25</td>
-                        </tr>
-                        <tr>
-                            <td class="date">18 de Marzo</td>
-                            <td class="place">Hardware Store</td>
-                            <td class="credits">+$3.00</td>
-                        </tr>
-                        <tr class="reward-row">
-                            <td class="date">16 de Marzo</td>
-                            <td class="place reward-place">
-                                <span class="highlight-text">Ice Cream Shop</span>
-                                <span class="double-reward-badge">
-                                    Duplica recompensa
-                                </span>
-                            </td>
-                            <td class="credits">+$2.25</td>
-                        </tr>
-                        <tr>
-                            <td class="date">15 de Marzo</td>
-                            <td class="place">Pet Store</td>
-                            <td class="credits">+$1.75</td>
-                        </tr>
-                        <tr>
-                            <td class="date">14 de Marzo</td>
-                            <td class="place">Flower Shop</td>
-                            <td class="credits">+$3.50</td>
-                        </tr>
-                        <tr>
-                            <td class="date">12 de Marzo</td>
-                            <td class="place">Electronics</td>
-                            <td class="credits">+$8.00</td>
-                        </tr>
-                        <tr>
-                            <td class="date">10 de Marzo</td>
-                            <td class="place">Art Gallery</td>
-                            <td class="credits">+$2.25</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div class="pagination-container">
-                    <div class="pagination-info">
-                        <span id="pagination-info">Mostrando 1-5 de 25 actividades</span>
-                    </div>
-                    <div class="pagination-controls">
-                        <button class="pagination-btn" id="prev-btn" disabled>
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <div class="pagination-pages" id="pagination-pages">
-                            <button class="page-btn active" data-page="1">1</button>
-                            <button class="page-btn" data-page="2">2</button>
-                            <button class="page-btn" data-page="3">3</button>
+        <!-- Nearby Rewards Section -->
+        <section id="nearby" class="section nearby-section">
+            <div class="section-header">
+                <h2 class="section-title">CERCA A TI</h2>
+                <p class="section-subtitle">Lugares cercanos donde puedes ganar recompensas</p>
+            </div>
+            
+            <div class="nearby-cards-container">
+                <div class="nearby-cards-grid">
+                    <div class="nearby-card">
+                        <div class="nearby-logo">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5mN2lW2WT-BailagadNPMv5ey7t0PEQLZmg&s" alt="Papa John's">
                         </div>
-                        <button class="pagination-btn" id="next-btn">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
+                        <div class="nearby-info">
+                            <h3 class="nearby-name">Papa John's</h3>
+                            <p class="nearby-distance">0.3 km</p>
+                                </div>
+                            </div>
+                    
+                    <div class="nearby-card">
+                        <div class="nearby-logo">
+                            <img src="https://1000marcas.net/wp-content/uploads/2019/11/McDonalds-logo.png" alt="McDonald's">
+                        </div>
+                        <div class="nearby-info">
+                            <h3 class="nearby-name">McDonald's</h3>
+                            <p class="nearby-distance">0.5 km</p>
+                        </div>
+                    </div>
+                    
+                    <div class="nearby-card">
+                        <div class="nearby-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks">
+                        </div>
+                        <div class="nearby-info">
+                            <h3 class="nearby-name">Starbucks</h3>
+                            <p class="nearby-distance">0.7 km</p>
+                                </div>
+                            </div>
+                    
+                    <div class="nearby-card">
+                        <div class="nearby-logo">
+                            <img src="https://logos-world.net/wp-content/uploads/2020/05/Subway-Logo.png" alt="Subway">
+                        </div>
+                        <div class="nearby-info">
+                            <h3 class="nearby-name">Subway</h3>
+                            <p class="nearby-distance">0.9 km</p>
+                        </div>
+                    </div>
+                    
+                    <div class="nearby-card">
+                        <div class="nearby-logo">
+                            <img src="https://logos-world.net/wp-content/uploads/2020/06/Dominos-Logo.png" alt="Domino's">
+                        </div>
+                        <div class="nearby-info">
+                            <h3 class="nearby-name">Domino's</h3>
+                            <p class="nearby-distance">1.2 km</p>
+                                </div>
+                            </div>
+                    
+                    <div class="nearby-card">
+                        <div class="nearby-logo">
+                            <img src="https://logos-world.net/wp-content/uploads/2020/04/KFC-Logo.png" alt="KFC">
+                        </div>
+                        <div class="nearby-info">
+                            <h3 class="nearby-name">KFC</h3>
+                            <p class="nearby-distance">1.4 km</p>
+                        </div>
+                    </div>
+                    
+                    <div class="nearby-card">
+                        <div class="nearby-logo">
+                            <img src="https://logos-world.net/wp-content/uploads/2020/05/Burger-King-Logo.png" alt="Burger King">
+                        </div>
+                        <div class="nearby-info">
+                            <h3 class="nearby-name">Burger King</h3>
+                            <p class="nearby-distance">1.6 km</p>
+                                </div>
+                            </div>
+                    
+                    <div class="nearby-card view-all-card">
+                        <div class="nearby-logo view-all-logo">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="nearby-info">
+                            <h3 class="nearby-name">Ver todos</h3>
+                            <p class="nearby-distance">+25 más</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+        
+        <!-- Double Rewards Section -->
+        <section class="section double-rewards-section">
+            <div class="section-header">
+                <h2 class="section-title">RECOMPENSAS DOBLES</h2>
+                <p class="section-subtitle">Visita estos negocios de nuevo este mes y gana el doble</p>
+            </div>
             
-            <div class="section animate-fadeInUp redeem-section">
+            <div class="double-rewards-carousel">
+                <div class="double-reward-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5mN2lW2WT-BailagadNPMv5ey7t0PEQLZmg&s" alt="Papa John's" class="business-logo">
+                    <div class="business-info">
+                        <h3>Papa John's</h3>
+                        <p class="reward-percentage">10% de vuelta</p>
+                    </div>
+                </div>
+                
+                <div class="double-reward-item">
+                    <img src="https://1000marcas.net/wp-content/uploads/2019/11/McDonalds-logo.png" alt="McDonald's" class="business-logo">
+                    <div class="business-info">
+                        <h3>McDonald's</h3>
+                        <p class="reward-percentage">10% de vuelta</p>
+                    </div>
+                </div>
+                
+                <div class="double-reward-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks" class="business-logo">
+                    <div class="business-info">
+                        <h3>Starbucks</h3>
+                        <p class="reward-percentage">10% de vuelta</p>
+                    </div>
+                </div>
+                
+                <div class="double-reward-item">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/05/Subway-Logo.png" alt="Subway" class="business-logo">
+                    <div class="business-info">
+                        <h3>Subway</h3>
+                        <p class="reward-percentage">10% de vuelta</p>
+                    </div>
+                </div>
+                
+                <div class="double-reward-item">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/06/Dominos-Logo.png" alt="Domino's" class="business-logo">
+                    <div class="business-info">
+                        <h3>Domino's</h3>
+                        <p class="reward-percentage">10% de vuelta</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Enhanced Communities Section -->
+        <section id="communities" class="section communities-section">
+                <div class="section-header">
+                <h2 class="section-title">COMUNIDADES</h2>
+                <p class="section-subtitle">Sigue a tus marcas favoritas para recibir información relevante y actualizaciones</p>
+            </div>
+            
+            <!-- Compact Communities Grid -->
+            <div class="communities-compact-grid">
+                <div class="community-compact-card" onclick="joinCommunity('papa-johns')">
+                    <div class="community-logo">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5mN2lW2WT-BailagadNPMv5ey7t0PEQLZmg&s" alt="Papa John's">
+                    </div>
+                    <div class="community-info">
+                        <h4 class="community-name">Papa John's</h4>
+                        <span class="community-members">2.8k seguidores</span>
+                </div>
+                    <button class="join-btn-compact">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                
+                <div class="community-compact-card" onclick="joinCommunity('starbucks')">
+                    <div class="community-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png" alt="Starbucks">
+            </div>
+                    <div class="community-info">
+                        <h4 class="community-name">Starbucks</h4>
+                        <span class="community-members">4.1k seguidores</span>
+        </div>
+                    <button class="join-btn-compact">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                
+                <div class="community-compact-card" onclick="joinCommunity('mcdonalds')">
+                    <div class="community-logo">
+                        <img src="https://1000marcas.net/wp-content/uploads/2019/11/McDonalds-logo.png" alt="McDonald's">
+                    </div>
+                    <div class="community-info">
+                        <h4 class="community-name">McDonald's</h4>
+                        <span class="community-members">5.7k seguidores</span>
+                    </div>
+                    <button class="join-btn-compact">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                
+                <div class="community-compact-card" onclick="joinCommunity('subway')">
+                    <div class="community-logo">
+                        <img src="https://logos-world.net/wp-content/uploads/2020/05/Subway-Logo.png" alt="Subway">
+                    </div>
+                    <div class="community-info">
+                        <h4 class="community-name">Subway</h4>
+                        <span class="community-members">1.9k seguidores</span>
+                    </div>
+                    <button class="join-btn-compact">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- My Communities (Compact) -->
+            <div class="my-communities-compact" id="joinedCommunities">
+                <div class="empty-communities-compact">
+                    <span class="empty-text">Sigue a tus marcas favoritas para recibir información relevante y actualizaciones</span>
+                </div>
+            </div>
+        </section>
+        
+
+        <div class="main-content">
+            
+            <div class="section redeem-section">
                 <div class="section-header">
                     <h2 class="section-title">CANJEA TUS CRÉDITOS</h2>
                 </div>
@@ -384,7 +467,7 @@
                 </div>
             </div>
             
-            <div class="section animate-fadeInUp referral-section-container">
+            <div class="section referral-section-container">
                 <div class="section-header">
                     <h2 class="section-title">REFIERE Y GANA</h2>
                 </div>
@@ -409,44 +492,7 @@
                 </div>
             </div>
             
-            <div class="section animate-fadeInUp">
-                <div class="section-header">
-                    <h2 class="section-title">CONSUMO POR CATEGORÍAS</h2>
-                </div>
-                
-                <div class="consumption-chart-container">
-                    <div class="chart-wrapper">
-                        <canvas id="consumptionChart" width="300" height="300"></canvas>
-                    </div>
-                    <div class="chart-legend">
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: #6B64DB;"></div>
-                            <span class="legend-label">Restaurantes</span>
-                            <span class="legend-value">$45.75</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: #8A84E2;"></div>
-                            <span class="legend-label">Cafeterías</span>
-                            <span class="legend-value">$28.50</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: #A89FE8;"></div>
-                            <span class="legend-label">Compras</span>
-                            <span class="legend-value">$22.25</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: #C5B9ED;"></div>
-                            <span class="legend-label">Entretenimiento</span>
-                            <span class="legend-value">$15.50</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-color" style="background-color: #E2D4F2;"></div>
-                            <span class="legend-label">Servicios</span>
-                            <span class="legend-value">$8.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
     
@@ -462,6 +508,43 @@
             </div>
         </div>
     </footer>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-section="home" aria-label="Inicio">
+            <i class="fas fa-home"></i>
+            <span class="nav-label">Inicio</span>
+        </button>
+        <button class="nav-item" data-section="activity" aria-label="Actividad" onclick="window.location.href='actividades.html'">
+            <i class="fas fa-chart-line"></i>
+            <span class="nav-label">Actividad</span>
+        </button>
+        <button class="nav-item" data-section="map" aria-label="Mapa" onclick="showNotification('Próximamente: Mapa interactivo de negocios', 'info')">
+            <i class="fas fa-map-marked-alt"></i>
+            <span class="nav-label">Mapa</span>
+        </button>
+        <button class="nav-item" data-section="menu" aria-label="Menú" onclick="window.location.href='perfil.html'">
+            <i class="fas fa-th-large"></i>
+            <span class="nav-label">Menú</span>
+        </button>
+    </nav>
+
+    <!-- Terms and Conditions Modal -->
+    <div id="termsModal" class="terms-modal-overlay">
+        <div class="terms-modal-dialog">
+            <div class="terms-modal-header">
+                <h3 id="modalTitle">Términos y Condiciones</h3>
+                <button class="terms-modal-close" onclick="closeTermsModal()">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="terms-modal-body">
+                <div id="modalContent">
+                    <!-- Content will be dynamically populated -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>

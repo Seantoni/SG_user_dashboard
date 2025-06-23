@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - SimpleGo</title>
+    <meta name="description" content="Accede a todas las funciones de SimpleGo">
+    <meta name="theme-color" content="#6B64DB">
+    
+    <!-- Preconnects for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Neue+Montreal:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with back button -->
+    <header class="header">
+        <div class="container">
+            <div class="page-header">
+                <button class="back-arrow" onclick="window.location.href='index.html'" aria-label="Volver al inicio">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h1 class="page-title">Menú</h1>
+                <div class="header-spacer"></div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Profile Header Section -->
+        <section class="profile-header-section">
+            <div class="profile-info-card">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-details">
+                    <h2 class="profile-name">¡Hola José! 👋</h2>
+                    <div class="profile-balance-section">
+                        <div class="profile-balance-main">
+                            <span class="balance-label">Balance Total</span>
+                            <div class="balance-amount-row">
+                                <span class="balance-amount">$12.27</span>
+                                <div class="balance-trend positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+$2.50</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-balance-stats">
+                            <div class="balance-stat">
+                                <span class="stat-value">8</span>
+                                <span class="stat-label">Tarjetas Activas</span>
+                            </div>
+                            <div class="balance-stat">
+                                <span class="stat-value">24</span>
+                                <span class="stat-label">Visitas Este Mes</span>
+                            </div>
+                            <div class="balance-stat">
+                                <span class="stat-value">$45.80</span>
+                                <span class="stat-label">Total Ganado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recompensas Category -->
+        <section class="profile-category-section">
+            <div class="category-header">
+                <h3 class="category-title">RECOMPENSAS</h3>
+            </div>
+            <div class="profile-grid">
+                <!-- Mis Tarjetas -->
+                <div class="profile-card" onclick="window.location.href='mis-tarjetas.html'">
+                    <div class="profile-card-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="profile-card-content">
+                        <h3 class="profile-card-title">Mis Tarjetas</h3>
+                        <p class="profile-card-description">Gestiona tus tarjetas de recompensas</p>
+                    </div>
+                    <div class="profile-card-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+
+                <!-- Usar Recompensas -->
+                <div class="profile-card featured" onclick="window.location.href='recompensas.html'">
+                    <div class="profile-card-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="profile-card-content">
+                        <h3 class="profile-card-title">Usar Recompensas</h3>
+                        <p class="profile-card-description">Canjea tus créditos por beneficios</p>
+                        <div class="profile-card-badge">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="profile-card-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+
+                <!-- Recompensas Dobles -->
+                <div class="profile-card" onclick="navigateToDoubleRewards()">
+                    <div class="profile-card-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="profile-card-content">
+                        <h3 class="profile-card-title">Recompensas Dobles</h3>
+                        <p class="profile-card-description">Gana 10% de vuelta en estos comercios</p>
+                    </div>
+                    <div class="profile-card-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explorar Category -->
+        <section class="profile-category-section">
+            <div class="category-header">
+                <h3 class="category-title">EXPLORAR</h3>
+            </div>
+            <div class="profile-grid">
+                <!-- Mis Comunidades -->
+                <div class="profile-card" onclick="navigateToCommunities()">
+                    <div class="profile-card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="profile-card-content">
+                        <h3 class="profile-card-title">Mis Comunidades</h3>
+                        <p class="profile-card-description">Conecta con tus marcas favoritas</p>
+                    </div>
+                    <div class="profile-card-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+
+                <!-- Todos los Negocios -->
+                <div class="profile-card" onclick="navigateToAllBusinesses()">
+                    <div class="profile-card-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="profile-card-content">
+                        <h3 class="profile-card-title">Todos los Negocios</h3>
+                        <p class="profile-card-description">Explora todos los comercios afiliados</p>
+                    </div>
+                    <div class="profile-card-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+
+                <!-- Referidos -->
+                <div class="profile-card" onclick="showNotification('Próximamente: Sistema de referidos', 'info')">
+                    <div class="profile-card-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div class="profile-card-content">
+                        <h3 class="profile-card-title">Referidos</h3>
+                        <p class="profile-card-description">Invita amigos y gana recompensas</p>
+                    </div>
+                    <div class="profile-card-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cuenta Category -->
+        <section class="profile-category-section">
+            <div class="category-header">
+                <h3 class="category-title">CUENTA</h3>
+            </div>
+            <div class="profile-grid">
+                <!-- Mi Cuenta -->
+                <div class="profile-card" onclick="showNotification('Próximamente: Configuración de cuenta', 'info')">
+                    <div class="profile-card-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <div class="profile-card-content">
+                        <h3 class="profile-card-title">Mi Cuenta</h3>
+                        <p class="profile-card-description">Información personal y configuración</p>
+                    </div>
+                    <div class="profile-card-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+
+                <!-- Configuración -->
+                <div class="profile-card" onclick="showNotification('Próximamente: Configuración avanzada', 'info')">
+                    <div class="profile-card-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="profile-card-content">
+                        <h3 class="profile-card-title">Configuración</h3>
+                        <p class="profile-card-description">Preferencias y ajustes de la app</p>
+                    </div>
+                    <div class="profile-card-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+
+                <!-- Cerrar Sesión -->
+                <div class="profile-card logout" onclick="showLogoutConfirm()">
+                    <div class="profile-card-icon">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                    <div class="profile-card-content">
+                        <h3 class="profile-card-title">Cerrar Sesión</h3>
+                        <p class="profile-card-description">Salir de tu cuenta de SimpleGo</p>
+                    </div>
+                    <div class="profile-card-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <button class="nav-item" data-section="home" aria-label="Inicio" onclick="window.location.href='index.html'">
+            <i class="fas fa-home"></i>
+            <span class="nav-label">Inicio</span>
+        </button>
+        <button class="nav-item" data-section="activity" aria-label="Actividad" onclick="window.location.href='actividades.html'">
+            <i class="fas fa-chart-line"></i>
+            <span class="nav-label">Actividad</span>
+        </button>
+        <button class="nav-item" data-section="map" aria-label="Mapa" onclick="showNotification('Próximamente: Mapa interactivo de negocios', 'info')">
+            <i class="fas fa-map-marked-alt"></i>
+            <span class="nav-label">Mapa</span>
+        </button>
+        <button class="nav-item active" data-section="menu" aria-label="Menú">
+            <i class="fas fa-th-large"></i>
+            <span class="nav-label">Menú</span>
+        </button>
+    </nav>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal-overlay">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>Cerrar Sesión</h3>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que quieres cerrar tu sesión?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeLogoutModal()">Cancelar</button>
+                <button class="btn btn-danger" onclick="confirmLogout()">Cerrar Sesión</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Logout functionality
+        function showLogoutConfirm() {
+            document.getElementById('logoutModal').style.display = 'flex';
+        }
+
+        function closeLogoutModal() {
+            document.getElementById('logoutModal').style.display = 'none';
+        }
+
+        function confirmLogout() {
+            showNotification('Sesión cerrada correctamente', 'success');
+            closeLogoutModal();
+            // Here you would typically redirect to login page
+            setTimeout(() => {
+                showNotification('Redirigiendo...', 'info');
+            }, 1500);
+        }
+
+        // Navigation functions (merged from explore page)
+        function navigateToCommunities() {
+            // Navigate to communities section on main page
+            window.location.href = 'index.html#communities';
+        }
+        
+        function navigateToDoubleRewards() {
+            // Navigate to double rewards section on main page
+            window.location.href = 'index.html#double-rewards';
+        }
+        
+        function navigateToAllBusinesses() {
+            // Show notification for now - could be expanded later
+            showNotification('Próximamente: Vista completa de todos los negocios', 'info');
+        }
+    </script>
+</body>
+</html> 

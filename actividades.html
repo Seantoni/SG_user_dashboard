@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades - SimpleGo</title>
+    <meta name="description" content="Revisa tu historial de actividades y oportunidades de recompensa con SimpleGo">
+    <meta name="theme-color" content="#6B64DB">
+    
+    <!-- Preconnects for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Neue+Montreal:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with back arrow -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <button class="back-arrow" onclick="window.location.href='index.html'" aria-label="Volver al inicio">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Page Title -->
+        <div class="page-header">
+            <h1 class="page-title">ACTIVIDADES</h1>
+            <p class="page-subtitle">Revisa tu historial de recompensas y oportunidades</p>
+        </div>
+
+        <section id="activity" class="section activity-section">
+            <div class="activity-filters">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="double-rewards">Recompensas dobles</button>
+            </div>
+            
+            <div class="expiry-notice">
+                <i class="fas fa-clock"></i>
+                Las oportunidades de recompensa doble expiran el <span class="expiry-date">30 de abril</span>
+            </div>
+            
+            <table class="activity-table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Establecimiento</th>
+                        <th>Créditos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="date">19 de Abril</td>
+                        <td class="place">Baker's Café</td>
+                        <td class="credits">+$2.00</td>
+                    </tr>
+                    <tr class="reward-row">
+                        <td class="date">17 de Abril</td>
+                        <td class="place reward-place">
+                            <span class="highlight-text">Café Aroma</span>
+                            <span class="double-reward-badge">
+                                Duplica recompensa
+                            </span>
+                        </td>
+                        <td class="credits">+$2.25</td>
+                    </tr>
+                    <tr class="reward-row">
+                        <td class="date">15 de Abril</td>
+                        <td class="place reward-place">
+                            <span class="highlight-text">Sportify</span>
+                            <span class="double-reward-badge">
+                                Duplica recompensa
+                            </span>
+                        </td>
+                        <td class="credits">+$4.25</td>
+                    </tr>
+                    <tr>
+                        <td class="date">12 de Abril</td>
+                        <td class="place">Cinema World</td>
+                        <td class="credits">+$3.50</td>
+                    </tr>
+                    <tr class="reward-row">
+                        <td class="date">10 de Abril</td>
+                        <td class="place reward-place">
+                            <span class="highlight-text">The Steakhouse</span>
+                            <span class="double-reward-badge">
+                                Duplica recompensa
+                            </span>
+                        </td>
+                        <td class="credits">+$5.75</td>
+                    </tr>
+                    <tr>
+                        <td class="date">8 de Abril</td>
+                        <td class="place">Costa Coffee</td>
+                        <td class="credits">+$1.75</td>
+                    </tr>
+                    <tr>
+                        <td class="date">7 de Abril</td>
+                        <td class="place">Metro Deli</td>
+                        <td class="credits">+$3.25</td>
+                    </tr>
+                    <tr class="reward-row">
+                        <td class="date">5 de Abril</td>
+                        <td class="place reward-place">
+                            <span class="highlight-text">Pizza Palace</span>
+                            <span class="double-reward-badge">
+                                Duplica recompensa
+                            </span>
+                        </td>
+                        <td class="credits">+$4.50</td>
+                    </tr>
+                    <tr>
+                        <td class="date">3 de Abril</td>
+                        <td class="place">Fresh Market</td>
+                        <td class="credits">+$2.75</td>
+                    </tr>
+                    <tr>
+                        <td class="date">2 de Abril</td>
+                        <td class="place">BookStore Café</td>
+                        <td class="credits">+$1.50</td>
+                    </tr>
+                    <tr>
+                        <td class="date">1 de Abril</td>
+                        <td class="place">Gym Zone</td>
+                        <td class="credits">+$2.00</td>
+                    </tr>
+                    <tr class="reward-row">
+                        <td class="date">30 de Marzo</td>
+                        <td class="place reward-place">
+                            <span class="highlight-text">Burger King</span>
+                            <span class="double-reward-badge">
+                                Duplica recompensa
+                            </span>
+                        </td>
+                        <td class="credits">+$3.75</td>
+                    </tr>
+                    <tr>
+                        <td class="date">28 de Marzo</td>
+                        <td class="place">Tech Store</td>
+                        <td class="credits">+$6.00</td>
+                    </tr>
+                    <tr>
+                        <td class="date">27 de Marzo</td>
+                        <td class="place">Pharmacy Plus</td>
+                        <td class="credits">+$1.25</td>
+                    </tr>
+                    <tr>
+                        <td class="date">25 de Marzo</td>
+                        <td class="place">Fashion Store</td>
+                        <td class="credits">+$4.75</td>
+                    </tr>
+                    <tr class="reward-row">
+                        <td class="date">23 de Marzo</td>
+                        <td class="place reward-place">
+                            <span class="highlight-text">Sushi Bar</span>
+                            <span class="double-reward-badge">
+                                Duplica recompensa
+                            </span>
+                        </td>
+                        <td class="credits">+$7.25</td>
+                    </tr>
+                    <tr>
+                        <td class="date">22 de Marzo</td>
+                        <td class="place">Gas Station</td>
+                        <td class="credits">+$2.50</td>
+                    </tr>
+                    <tr>
+                        <td class="date">20 de Marzo</td>
+                        <td class="place">Supermarket</td>
+                        <td class="credits">+$5.25</td>
+                    </tr>
+                    <tr>
+                        <td class="date">18 de Marzo</td>
+                        <td class="place">Hardware Store</td>
+                        <td class="credits">+$3.00</td>
+                    </tr>
+                    <tr class="reward-row">
+                        <td class="date">16 de Marzo</td>
+                        <td class="place reward-place">
+                            <span class="highlight-text">Ice Cream Shop</span>
+                            <span class="double-reward-badge">
+                                Duplica recompensa
+                            </span>
+                        </td>
+                        <td class="credits">+$2.25</td>
+                    </tr>
+                    <tr>
+                        <td class="date">15 de Marzo</td>
+                        <td class="place">Pet Store</td>
+                        <td class="credits">+$1.75</td>
+                    </tr>
+                    <tr>
+                        <td class="date">14 de Marzo</td>
+                        <td class="place">Flower Shop</td>
+                        <td class="credits">+$3.50</td>
+                    </tr>
+                    <tr>
+                        <td class="date">12 de Marzo</td>
+                        <td class="place">Electronics</td>
+                        <td class="credits">+$8.00</td>
+                    </tr>
+                    <tr>
+                        <td class="date">10 de Marzo</td>
+                        <td class="place">Art Gallery</td>
+                        <td class="credits">+$2.25</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="pagination-container">
+                <div class="pagination-info">
+                    <span id="pagination-info">Mostrando 1-5 de 25 actividades</span>
+                </div>
+                <div class="pagination-controls">
+                    <button class="pagination-btn" id="prev-btn" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="pagination-pages" id="pagination-pages">
+                        <button class="page-btn active" data-page="1">1</button>
+                        <button class="page-btn" data-page="2">2</button>
+                        <button class="page-btn" data-page="3">3</button>
+                    </div>
+                    <button class="pagination-btn" id="next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Términos y Condiciones</a>
+                    <a href="#" class="footer-link">Política de Privacidad</a>
+                    <a href="#" class="footer-link">Preguntas Frecuentes</a>
+                </div>
+                <div class="copyright">© 2023 SimpleGo. Todos los derechos reservados.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <button class="nav-item" data-section="home" aria-label="Inicio" onclick="window.location.href='index.html'">
+            <i class="fas fa-home"></i>
+            <span class="nav-label">Inicio</span>
+        </button>
+        <button class="nav-item active" data-section="activity" aria-label="Actividad">
+            <i class="fas fa-chart-line"></i>
+            <span class="nav-label">Actividad</span>
+        </button>
+        <button class="nav-item" data-section="map" aria-label="Mapa" onclick="showNotification('Próximamente: Mapa interactivo de negocios', 'info')">
+            <i class="fas fa-map-marked-alt"></i>
+            <span class="nav-label">Mapa</span>
+        </button>
+        <button class="nav-item" data-section="menu" aria-label="Menú" onclick="window.location.href='perfil.html'">
+            <i class="fas fa-th-large"></i>
+            <span class="nav-label">Menú</span>
+        </button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html> 

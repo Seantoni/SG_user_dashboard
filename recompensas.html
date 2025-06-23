@@ -230,6 +230,27 @@
         </div>
     </footer>
 
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <button class="nav-item" data-section="home" aria-label="Inicio" onclick="window.location.href='index.html'">
+            <i class="fas fa-home"></i>
+            <span class="nav-label">Inicio</span>
+        </button>
+        <button class="nav-item" data-section="activity" aria-label="Actividad" onclick="window.location.href='actividades.html'">
+            <i class="fas fa-chart-line"></i>
+            <span class="nav-label">Actividad</span>
+        </button>
+        <button class="nav-item" data-section="map" aria-label="Mapa" onclick="showNotification('Próximamente: Mapa interactivo de negocios', 'info')">
+            <i class="fas fa-map-marked-alt"></i>
+            <span class="nav-label">Mapa</span>
+        </button>
+        <button class="nav-item" data-section="menu" aria-label="Menú" onclick="window.location.href='perfil.html'">
+            <i class="fas fa-th-large"></i>
+            <span class="nav-label">Menú</span>
+        </button>
+    </nav>
+
     <script src="rewards-script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html> 

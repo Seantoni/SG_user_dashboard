@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Tarjetas de Recompensas - SimpleGo</title>
+    <meta name="description" content="Gestiona tus tarjetas de lealtad activas">
+    <meta name="theme-color" content="#6B64DB">
+    
+    <!-- Preconnects for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Neue+Montreal:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with back button -->
+    <header class="header">
+        <div class="container">
+            <div class="page-header">
+                <button class="back-arrow" onclick="window.location.href='index.html'" aria-label="Volver al inicio">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h1 class="page-title">Mis Tarjetas de Recompensas</h1>
+                <div class="header-spacer"></div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Reward Cards Vertical Grid -->
+        <section class="rewards-vertical-section">
+            <div class="rewards-vertical-grid">
+                <!-- Monthly Challenge Card -->
+                <div class="reward-card monthly-challenge clickable-card" onclick="openTermsModal('monthly-challenge')">
+                    <div class="reward-card-content">
+                        <div class="challenge-header">
+                            <h3 class="reward-card-title">🏆 Reto del Mes</h3>
+                            <div class="challenge-badge">DICIEMBRE</div>
+                        </div>
+                        <div class="challenge-description">Visita 4 restaurantes diferentes</div>
+                        <div class="visits-remaining">
+                            <span class="remaining-number">2</span>
+                            <span class="remaining-text">de 4 completados</span>
+                        </div>
+                        <div class="loyalty-card">
+                            <div class="challenge-progress-bar">
+                                <div class="challenge-progress-fill" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="challenge-reward-section">
+                            <span class="challenge-reward">Recompensa: +$20</span>
+                        </div>
+                        <div class="last-visit">
+                            <span class="last-visit-text">Quedan 18 días</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Olive Garden Card -->
+                <div class="reward-card olive-garden clickable-card" data-card-id="olive-garden" onclick="openTermsModal('olive-garden')">
+                    <div class="reward-card-header">
+                        <button class="remove-card-btn" onclick="event.stopPropagation(); removeRewardCard('olive-garden')" title="Eliminar tarjeta">
+                            <span class="remove-icon">×</span>
+                        </button>
+                    </div>
+                    <div class="reward-card-content">
+                        <h3 class="reward-card-title">Postre Gratis en<br>Olive Garden</h3>
+                        <div class="visits-remaining">
+                            <span class="remaining-number">3</span>
+                            <span class="remaining-text">visitas restantes</span>
+                        </div>
+                        <div class="loyalty-card">
+                            <div class="loyalty-stamps">
+                                <div class="stamp completed early"></div>
+                                <div class="stamp completed early"></div>
+                                <div class="stamp completed early"></div>
+                                <div class="stamp completed mid"></div>
+                                <div class="stamp completed mid"></div>
+                                <div class="stamp completed mid"></div>
+                                <div class="stamp completed recent"></div>
+                                <div class="stamp empty"></div>
+                                <div class="stamp empty"></div>
+                                <div class="stamp empty"></div>
+                            </div>
+                        </div>
+                        <div class="last-visit">
+                            <span class="last-visit-text">Última visita: 15 de abril</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Papa Johns Card -->
+                <div class="reward-card papa-johns clickable-card" data-card-id="papa-johns" onclick="openTermsModal('papa-johns')">
+                    <div class="reward-card-header">
+                        <button class="remove-card-btn" onclick="event.stopPropagation(); removeRewardCard('papa-johns')" title="Eliminar tarjeta">
+                            <span class="remove-icon">×</span>
+                        </button>
+                    </div>
+                    <div class="reward-card-content">
+                        <h3 class="reward-card-title">Pizza Gratis en<br>Papa Johns</h3>
+                        <div class="visits-remaining">
+                            <span class="remaining-number">2</span>
+                            <span class="remaining-text">visitas restantes</span>
+                        </div>
+                        <div class="loyalty-card">
+                            <div class="loyalty-stamps">
+                                <div class="stamp completed early"></div>
+                                <div class="stamp completed early"></div>
+                                <div class="stamp completed early"></div>
+                                <div class="stamp completed mid"></div>
+                                <div class="stamp completed mid"></div>
+                                <div class="stamp completed mid"></div>
+                                <div class="stamp completed recent"></div>
+                                <div class="stamp completed recent"></div>
+                                <div class="stamp empty"></div>
+                                <div class="stamp empty"></div>
+                            </div>
+                        </div>
+                        <div class="last-visit">
+                            <span class="last-visit-text">Última visita: 18 de abril</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add More Card -->
+                <a href="recompensas.html" class="reward-card add-more">
+                    <div class="reward-card-content">
+                        <div class="add-more-icon">
+                            <span class="plus-symbol">+</span>
+                        </div>
+                        <h3 class="add-more-title">Desbloquea más<br>recompensas</h3>
+                        <p class="add-more-description">Explora restaurantes cercanos y comienza nuevas tarjetas de lealtad</p>
+                        <div class="add-more-button">
+                            <span>Explorar</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <button class="nav-item" data-section="home" aria-label="Inicio" onclick="window.location.href='index.html'">
+            <i class="fas fa-home"></i>
+            <span class="nav-label">Inicio</span>
+        </button>
+        <button class="nav-item" data-section="activity" aria-label="Actividad" onclick="window.location.href='actividades.html'">
+            <i class="fas fa-chart-line"></i>
+            <span class="nav-label">Actividad</span>
+        </button>
+        <button class="nav-item" data-section="map" aria-label="Mapa" onclick="showNotification('Próximamente: Mapa interactivo de negocios', 'info')">
+            <i class="fas fa-map-marked-alt"></i>
+            <span class="nav-label">Mapa</span>
+        </button>
+        <button class="nav-item" data-section="menu" aria-label="Menú" onclick="window.location.href='perfil.html'">
+            <i class="fas fa-th-large"></i>
+            <span class="nav-label">Menú</span>
+        </button>
+    </nav>
+
+    <!-- Terms and Conditions Modal -->
+    <div id="termsModal" class="terms-modal-overlay">
+        <div class="terms-modal-dialog">
+            <div class="terms-modal-header">
+                <h3 id="modalTitle">Términos y Condiciones</h3>
+                <button class="terms-modal-close" onclick="closeTermsModal()">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="terms-modal-body">
+                <div id="modalContent">
+                    <!-- Content will be dynamically populated -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html> 

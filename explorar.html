@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar - SimpleGo</title>
+    <meta name="description" content="Explora todas las opciones disponibles en SimpleGo">
+    <meta name="theme-color" content="#6B64DB">
+    
+    <!-- Preconnects for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://oferta-uploads-prod.s3.us-east-1.amazonaws.com">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Neue+Montreal:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header with back button -->
+    <header class="header">
+        <div class="container">
+            <div class="page-header">
+                <button class="back-arrow" onclick="window.location.href='index.html'" aria-label="Volver al inicio">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h1 class="page-title">Explorar</h1>
+                <div class="header-spacer"></div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Explore Menu Grid -->
+        <section class="explore-menu-section">
+            <div class="explore-grid">
+                <!-- Recompensas Dobles Card -->
+                <div class="explore-card" onclick="navigateToDoubleRewards()">
+                    <div class="explore-card-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="explore-card-content">
+                        <h3 class="explore-card-title">Recompensas Dobles</h3>
+                        <p class="explore-card-description">Gana 10% de vuelta en estos comercios</p>
+                    </div>
+                    <div class="explore-card-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Mis Tarjetas de Recompensas Card -->
+                <div class="explore-card" onclick="window.location.href='recompensas.html'">
+                    <div class="explore-card-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="explore-card-content">
+                        <h3 class="explore-card-title">Mis Tarjetas de Recompensas</h3>
+                        <p class="explore-card-description">Gestiona tus tarjetas de lealtad activas</p>
+                    </div>
+                    <div class="explore-card-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Mis Comunidades Card -->
+                <div class="explore-card" onclick="navigateToCommunities()">
+                    <div class="explore-card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="explore-card-content">
+                        <h3 class="explore-card-title">Mis Comunidades</h3>
+                        <p class="explore-card-description">Conecta con tus marcas favoritas</p>
+                    </div>
+                    <div class="explore-card-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Todos los Negocios Card -->
+                <div class="explore-card" onclick="navigateToAllBusinesses()">
+                    <div class="explore-card-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="explore-card-content">
+                        <h3 class="explore-card-title">Todos los Negocios</h3>
+                        <p class="explore-card-description">Explora todos los comercios afiliados</p>
+                    </div>
+                    <div class="explore-card-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+    </div>
+    
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <button class="nav-item" data-section="home" aria-label="Inicio" onclick="window.location.href='index.html'">
+            <i class="fas fa-home"></i>
+            <span class="nav-label">Inicio</span>
+        </button>
+        <button class="nav-item" data-section="activity" aria-label="Actividad" onclick="window.location.href='actividades.html'">
+            <i class="fas fa-chart-line"></i>
+            <span class="nav-label">Actividad</span>
+        </button>
+        <button class="nav-item" data-section="map" aria-label="Mapa" onclick="showNotification('Próximamente: Mapa interactivo de negocios', 'info')">
+            <i class="fas fa-map-marked-alt"></i>
+            <span class="nav-label">Mapa</span>
+        </button>
+        <button class="nav-item" data-section="menu" aria-label="Menú" onclick="window.location.href='perfil.html'">
+            <i class="fas fa-th-large"></i>
+            <span class="nav-label">Menú</span>
+        </button>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Navigation functions for explore page
+        function navigateToCommunities() {
+            // Navigate to communities section on main page
+            window.location.href = 'index.html#communities';
+        }
+        
+        function navigateToDoubleRewards() {
+            // Navigate to double rewards section on main page
+            window.location.href = 'index.html#double-rewards';
+        }
+        
+        function navigateToAllBusinesses() {
+            // Show notification for now - could be expanded later
+            showNotification('Próximamente: Vista completa de todos los negocios', 'info');
+        }
+        
+        function navigateToMap() {
+            // Show notification for now - could integrate with maps API
+            showNotification('Próximamente: Mapa interactivo de negocios', 'info');
+        }
+        
+        function navigateToSettings() {
+            // Show notification for now - could create settings page
+            showNotification('Próximamente: Página de configuración', 'info');
+        }
+        
+        function navigateToHelp() {
+            // Show notification for now - could create help page
+            showNotification('Próximamente: Centro de ayuda', 'info');
+        }
+    </script>
+</body>
+</html> 

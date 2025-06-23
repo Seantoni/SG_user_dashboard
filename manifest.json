@@ -1,0 +1,29 @@
+{
+  "name": "SimpleGo Dashboard",
+  "short_name": "SimpleGo",
+  "description": "Gestiona tus recompensas y descubre nuevas oportunidades con SimpleGo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F9FC",
+  "theme_color": "#6B64DB",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://oferta-uploads-prod.s3.us-east-1.amazonaws.com/pictures/others/SimpleGo/SGO_Marca_9.png?_t=1745530830",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://oferta-uploads-prod.s3.us-east-1.amazonaws.com/pictures/others/SimpleGo/SGO_Marca_9.png?_t=1745530830",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "shopping", "finance"],
+  "lang": "es",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+} 
